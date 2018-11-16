@@ -7,6 +7,12 @@ module SessionsHelper
     return
   end
 
+  #Delete the session cookie for the user ID and un-sets current_user
+  def log_out
+    session.delete(:user_id)
+    @current_user = nil
+  end
+
   #Checks if a user is logged in, and returns the logged-in user if they
   #exist
   def current_user

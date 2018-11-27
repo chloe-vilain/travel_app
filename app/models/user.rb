@@ -29,14 +29,15 @@ def remember
   update_attribute(:remember_digest, User.digest(remember_token))
 end
 
+#Returns true if the remember digest in the db matches the given token
+def authenticated?(remember_token)
+  return false if remember_digest.nil?
+  BCrypt::Password.new(remember_digest).is_password?(remember_token)
+end
+
 #Unwinds remember by setting :remember_digest to nil
 def forget
   update_attribute(:remember_digest, nil)
-end
-
-#Returns true if the remember digest in the db matches the given token
-def authenticated?
-  BCrypt::Password.new(remember_digest).is_password?(remember_token)
 end
 
 

@@ -5,6 +5,12 @@
 
 $gray-medium-light: #eaeaea;
 
+/*screen breakpoints (min size)*/
+$xl:1200px;
+$lg:992px;
+$md:768px;
+$sm:576px;
+
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -178,4 +184,29 @@ input {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+/* Map */
+
+#map {
+  top:0;
+  bottom:0;
+  width:100%;
+  height: 400px;
+}
+
+@media only screen and (min-width: $sm) {
+  #map {
+  height: 600px
+}
+}
+
+@media only screen and (min-width: $md) {
+  #map {
+  height: 800px
+}
 }

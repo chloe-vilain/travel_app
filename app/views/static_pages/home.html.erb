@@ -1,7 +1,18 @@
 <% provide(:title, "Home") %>
-<div class="center jumbotron">
-  <h1>Chloe and Joey's Travel Website</h1>
-  <p>This is the page where you can see our journey.</p>
+<div class='row'>
+  <div class='col-md-8'>
+    <h1>Chloe and Joey's Travel Website</h1>
+    <p>This is the page where you can see our journey.</p>
+  </div>
+  <div class = row>
+    <div class='col-md-8'>
+      <div id='map' class = 'clearfix'></div>
+      <%= javascript_tag "map('#{ENV["MAPBOX_KEY"]}')" %>
+    </div>
+    <div class='col-md-4'>
+      <p>Sidebar text</p>
+    </div>
+  </div>
   <p>You can create an accout to access full content.</p>
   <%= link_to "Create an account", signup_path, class: "btn btn-lg btn-primary" %>
 </div>

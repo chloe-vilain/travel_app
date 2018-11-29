@@ -10,6 +10,9 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /(\A.*\d.*[a-zA-Z].*\z)|(\A.*[a-zA-Z].*\d.*\z)/ #at least 1 alpha char, at least 1 digit
   validates :password, presence: true, length: { minimum: 8 },
                   format: { with: VALID_PASSWORD_REGEX}
+  has_many :pictures
+  has_many :posts
+  has_many :comments
 
 # Returns the hash digest of the given string.
 def User.digest(string)

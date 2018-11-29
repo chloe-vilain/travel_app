@@ -1,0 +1,3 @@
+module AbstractPostable
+
+end

@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_16_190102) do
+ActiveRecord::Schema.define(version: 2018_11_28_221948) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id_id"], name: "index_comments_on_user_id_id"
+    t.index [nil, "created_at"], name: "index_comments_on_user_id_and_created_at"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "image"
+    t.text "caption"
+    t.float "longitude"
+    t.float "latitude"
+    t.boolean "is_map"
+    t.integer "user_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id_id"], name: "index_pictures_on_user_id_id"
+    t.index [nil, "created_at"], name: "index_pictures_on_user_id_and_created_at"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "content"
+    t.float "longitude"
+    t.float "latitude"
+    t.boolean "is_map"
+    t.integer "user_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id_id"], name: "index_posts_on_user_id_id"
+    t.index [nil, "created_at"], name: "index_posts_on_user_id_and_created_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

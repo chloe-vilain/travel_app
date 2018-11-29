@@ -1,0 +1,4 @@
+module AbstractSharable
+  
+
+end
